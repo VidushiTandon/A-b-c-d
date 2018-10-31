@@ -1,0 +1,43 @@
+﻿@using ApparelStoreLibrary
+@model Credentials
+@{
+    ViewData["Title"] = "Login";
+}
+    <head>
+        <style>
+
+            .Account {
+                background-color: tomato;
+                color: white;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    
+    <body style="background-color:white;">
+        <center>
+            <h1 style="color:black; font-size:500%; font-family:'Times New Roman', Times, serif; ">
+                <centre><h1>CLOTH NATION</h1></centre><br>
+            </h1>
+
+
+
+            <form asp-action="Login" asp-controller="Admin" method="post" align="right">
+
+
+                Login:<br>
+                <input type="email" placeholder="Enter Email" name="Email" required>
+                <br>
+                Password:<br>
+                <input type="password" placeholder="Enter Password" name="Password" required>
+                <br />
+                <input type="submit" value="Submit" />
+
+                <br />
+
+                <div asp-validation-summary="All"></div>
+            </form>
+            <button type="submit"><a href="http://localhost:50816/admin/signup">Create Account</a></button>
+        </center>
+    </body>
+

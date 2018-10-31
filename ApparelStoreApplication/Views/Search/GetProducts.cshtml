@@ -1,0 +1,38 @@
+﻿@using ApparelStoreWebService.Models.DB;
+@model List<ProductViewModel>
+@{
+    ViewData["Title"] = "GetProducts";
+}
+
+@{ 
+    List<ProductViewModel> Model = (List<ProductViewModel>)ViewBag.product;
+}
+
+
+
+<form asp-action="PostProducts" asp-controller="Search" method="post">
+    <div class="row">
+        <input type="submit" value="Submit"  class="btn btn-success"/>
+    </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-5">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                <div>
+                    <label>@Model[i].Title</label> <input type="hidden" name="[@i].Title" value="@Model[i].Title" />
+                    <label>@Model[i].Price</label> <input type="hidden"  name="[@i].Price" value="@Model[i].Price" />
+                    <label>@Model[i].Description</label> <input type="hidden"  name="[@i].Description" value="@Model[i].Description" />
+                    @Html.CheckBoxFor(c=>@Model[i].Selected)
+                </div>
+                }
+                <div>
+
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+</form>
+
+
+
